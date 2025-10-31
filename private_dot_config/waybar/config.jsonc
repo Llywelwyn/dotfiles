@@ -2,27 +2,22 @@
   "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "spacing": 3,
-  "height": 26,
+  "spacing": 2,
+  "height": 15,
   "modules-left": [
     "clock",
-    "custom/update",
-    "custom/screenrecording-indicator",
-    "custom/do-not-disturb-indicator"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "niri/workspaces"
   ],
   "modules-right": [
     "tray",
+    "bluetooth",
     "network",
-    "memory",
-    "cpu",
     "pulseaudio",
     "battery"
   ],
-  "hyprland/workspaces": {
-    "on-click": "activate",
+  "niri/workspaces": {
     "active-only": false,
     "all-outputs": false,
     "format": "{icon}",
@@ -33,34 +28,10 @@
       "empty": "◦"
     }
   },
-  "custom/update": {
-    "format": "",
-    "exec": "omarchy-update-available",
-    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 3600
-  },
-  "custom/do-not-disturb-indicator": {
-    "on-click": "makoctl mode -t do-not-disturb && notify-send 'Enabled notificaitons'",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/do-not-disturb.sh",
-    "signal": 9,
-    "return-type": "json"
-  },
-  "memory": {
-    "interval": 5,
-    "format": "MEM {percentage}"
-  },
-  "cpu": {
-    "interval": 5,
-    "format": "CPU {usage}",
-    "on-click": "$TERMINAL -e btop"
-  },
   "clock": {
     "format": "{:L%A %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
-    "on-click-right": "omarchy-cmd-tzupdate"
   },
   "network": {
     "interface": "wl*",
@@ -71,8 +42,8 @@
       "󰤥",
       "󰤨"
     ],
-    "format": "NET {signalStrength}",
-    "format-wifi": "NET {signalStrength}",
+    "format": "{icon}",
+    "format-wifi": "{icon}",
     "format-ethernet": "WIRED",
     "format-disconnected": "DSCNNCTED",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
@@ -80,7 +51,6 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "omarchy-launch-wifi"
   },
   "disk": {
     "format": "DSK {percentage_used}"
@@ -130,8 +100,6 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "$TERMINAL --class=Wiremix -e wiremix",
-    "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 2,
     "format-muted": "---mute---",
@@ -151,32 +119,10 @@
       ]
     }
   },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item"
-    },
-    "modules": [
-      "custom/expand-icon",
-      "bluetooth",
-      "tray"
-    ]
-  },
-  "custom/expand-icon": {
-    "format": " ",
-    "tooltip": false
-  },
   "bluetooth": {
     "format": "BLU",
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "blueberry"
-  },
-  "custom/screenrecording-indicator": {
-    "on-click": "omarchy-cmd-screenrecord",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
-    "signal": 8,
-    "return-type": "json"
   },
   "tray": {
     "icon-size": 14,
