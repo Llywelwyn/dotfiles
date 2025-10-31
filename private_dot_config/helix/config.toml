@@ -1,0 +1,68 @@
+[editor]
+scrolloff = 5
+mouse = false
+default-yank-register = "+"
+middle-click-paste = true
+shell = ["sh", "-c"]
+line-number = "relative"
+cursorline = true
+cursorcolumn = false
+continue-comments = true
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+auto-completion = true
+path-completion = true
+auto-format = true
+idle-timeout = 250
+completion-timeout = 250
+preview-completion-insert = true
+completion-trigger-len = 2
+completion-replace = false
+auto-info = true
+true-color = false
+undercurl = false
+rulers = []
+bufferline = "never"
+color-modes = false
+text-width = 80
+workspace-lsp-roots = []
+default-line-ending = "native"
+insert-final-newline = true
+atomic-save = true
+trim-final-newlines = false
+trim-trailing-whitespace = false
+popup-border = "none" 
+indent-heuristic = "hybrid"
+jump-label-alphabet = "abcdefghijklmnopqrstuvwxyz"
+end-of-line-diagnostics = "disable"
+clipboard-provider = "wayland"
+editor-config = true
+
+[editor.statusline]
+left = ["mode", "spinner", "register"]
+center = ["file-name", "read-only-indicator", "file-modification-indicator"] 
+right = ["diagnostics", "version-control", "position", "file-encoding", "file-type"]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "VISUAL"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
+
+[editor.lsp]
+enable = true
+display-messages = true
+display-progress-messages = true
+auto-signature-help = true
+display-inlay-hints = false
+display-color-swatches = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = true
