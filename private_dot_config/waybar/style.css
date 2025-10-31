@@ -1,5 +1,5 @@
 * {
-  background-color: @background;
+  background-color: #222222;
   color: @foreground;
 
   border: none;
@@ -20,7 +20,7 @@
 #workspaces button {
   all: initial;
   padding: 0 6px;
-  margin: 0 1.5px;
+  margin: 1px 1.5px;
   min-width: 9px;
 }
 

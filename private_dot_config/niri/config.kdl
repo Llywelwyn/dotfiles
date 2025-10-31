@@ -1,7 +1,3 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// https://yalter.github.io/niri/Configuration:-Introduction
-
 // https://yalter.github.io/niri/Configuration:-Input
 input {
     keyboard {
@@ -24,20 +20,14 @@ input {
         accel-profile "flat"
     }
     warp-mouse-to-focus
-    focus-follows-mouse max-scroll-amount="95%"
+    focus-follows-mouse max-scroll-amount="90%"
 }
 
-// https://yalter.github.io/niri/Configuration:-Outputs
-/-output "eDP-1" {
+// https://yalter.github.io/niri/Configuration:-Output
+output "eDP-1" {
     mode "1920x1080@60"
     scale 1
     transform "normal"
-    // Position of the output in the global coordinate space.
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
     position x=1920 y=0
 }
 
@@ -45,20 +35,16 @@ input {
 layout {
     gaps 9
     center-focused-column "never"
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    always-center-single-column
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
     }
-    // preset-window-heights { }
-
-    default-column-width { proportion 0.75; }
-
+    default-column-width { proportion 0.5; }
     focus-ring {
         off
     }
-
     border {
         width 2
         active-color "#ffc87f"
@@ -67,7 +53,14 @@ layout {
         active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
-
+    tab-indicator {
+	hide-when-single-tab
+	width 4
+	gap 8
+	length total-proportion=1.0
+	position "top"
+	place-within-column
+    }
     shadow {
         on
         draw-behind-window false
@@ -76,11 +69,10 @@ layout {
         offset x=3 y=3
         color "#0007"
     }
-
     struts {
-        // left 64
-        // right 64
-        // top 64
+        left 16
+        right 16
+        top -4
         // bottom 64
     }
 }
@@ -94,7 +86,6 @@ hotkey-overlay {
 
 prefer-no-csd
 screenshot-path "~/dcim/pictures/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null
 
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
@@ -195,16 +186,8 @@ binds {
     Mod+Alt+Shift+Right { move-column-to-monitor-right; }
 
     // Moving workspace to monitor.
-    Mod+Shift+Comma      { move-workspace-to-monitor-left; }
-    Mod+Shift+Period     { move-workspace-to-monitor-right; }
-
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+Shift+Page_Down { move-column-to-workspace-down; }
-    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
-
-    Mod+Alt+Page_Down { move-workspace-down; }
-    Mod+Alt+Page_Up   { move-workspace-up; }
+    Mod+Alt+Comma      { move-workspace-to-monitor-left; }
+    Mod+Alt+Period     { move-workspace-to-monitor-right; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -218,15 +201,15 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
 
-    Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { toggle-column-tabbed-display; }
 
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+Colon { center-column; }
+    Mod+Semicolon { center-column; }
     Mod+Apostrophe { switch-preset-column-width; }
     Mod+Z { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    F11 { fullscreen-window; }
 
     Mod+Ctrl+Left { set-column-width "-10%"; }
     Mod+Ctrl+Right { set-column-width "+10%"; }
@@ -242,11 +225,6 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P { power-off-monitors; }
-
-    // Themes.
-    Mod+Shift+Space { spawn-sh "omarchy-toggle-waybar"; }
-    Mod+Ctrl+Space { spawn-sh "omarchy-theme-bg-next"; }
-    Mod+Shift+Ctrl+Space { spawn-sh "omarchy-menu theme"; }
     
     // Notifications.
     Mod+Ctrl+Comma { spawn-sh "makoctl dismiss"; }
