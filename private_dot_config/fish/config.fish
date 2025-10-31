@@ -1,3 +1,4 @@
+set -x EDITOR nvim
 set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 

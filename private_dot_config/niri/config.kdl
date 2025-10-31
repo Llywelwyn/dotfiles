@@ -85,11 +85,8 @@ layout {
     }
 }
 
-spawn-at-startup "hypridle"
-spawn-at-startup "mako"
 spawn-at-startup "waybar"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular -all-mime-type-regex '^(?!x-kde-passwordManagerHint).+'"
-spawn-sh-at-startup "hyprpm reload"
 
 hotkey-overlay {
     skip-at-startup
@@ -137,13 +134,19 @@ window-rule {
     opacity 1.0
 }
 
+window-rule {
+    match title="^launcher$"
+    open-floating true
+    open-focused true
+}
+
 binds {
     Mod+K                 { show-hotkey-overlay; }
     Mod+O                 repeat=false           { toggle-overview; }
     Mod+W                 repeat=false           { close-window; }
 
     Mod+Return            { spawn "alacritty"; }
-    Mod+Space             { spawn-sh "walker -p start"; }
+    Mod+Space             { spawn-sh "alacritty --title launcher -e gyr"; }
     Mod+F                 { spawn-sh "uwsm app -- nautilus --new-window"; }
     Mod+B                 { spawn "chromium"; }
 
@@ -220,20 +223,17 @@ binds {
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+Colon { switch-preset-column-width; }
-    Mod+Apostrophe { maximize-column; }
-    // Mod+Shift+F { fullscreen-window; }
-    // Mod+Ctrl+F { expand-column-to-available-width; }
-    // Mod+C { center-column; }
+    Mod+Colon { center-column; }
+    Mod+Apostrophe { switch-preset-column-width; }
+    Mod+Z { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
 
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Ctrl+Left { set-column-width "-10%"; }
+    Mod+Ctrl+Right { set-column-width "+10%"; }
+    Mod+Ctrl+Down { set-window-height "-10%"; }
+    Mod+Ctrl+Up { set-window-height "+10%"; }
 
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    Mod+C { toggle-column-tabbed-display; }
+    Mod+Shift+V { toggle-window-floating; }
 
     Print       { screenshot; }
     Ctrl+Print  { screenshot-screen; }
