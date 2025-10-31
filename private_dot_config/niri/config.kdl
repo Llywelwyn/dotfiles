@@ -146,7 +146,7 @@ binds {
     Mod+W                 repeat=false           { close-window; }
 
     Mod+Return            { spawn "alacritty"; }
-    Mod+Space             { spawn-sh "alacritty --title launcher -e gyr"; }
+    Mod+Space             { spawn-sh "alacritty --title launcher -e fsel"; }
     Mod+F                 { spawn-sh "uwsm app -- nautilus --new-window"; }
     Mod+B                 { spawn "chromium"; }
 
