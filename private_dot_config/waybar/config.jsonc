@@ -1,18 +1,21 @@
 {
+  "start_hidden": true,
+  "exclusive": false,
   "reload_style_on_change": true,
-  "layer": "top",
+  "layer": "overlay",
   "position": "top",
-  "spacing": 2,
-  "height": 15,
+  "margin-left": 465,
+  "margin-right": 465,
+  "margin-top": 233,
+  "spacing": 0,
   "modules-left": [
-    "clock",
+    "clock"
   ],
   "modules-center": [
     "niri/workspaces"
   ],
   "modules-right": [
     "tray",
-    "bluetooth",
     "network",
     "pulseaudio",
     "battery"
@@ -31,7 +34,7 @@
   "clock": {
     "format": "{:L%A %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
-    "tooltip": false,
+    "tooltip": false
   },
   "network": {
     "interface": "wl*",
@@ -50,7 +53,7 @@
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
-    "spacing": 1,
+    "spacing": 1
   },
   "disk": {
     "format": "DSK {percentage_used}"
