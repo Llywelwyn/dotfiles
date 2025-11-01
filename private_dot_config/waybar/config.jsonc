@@ -20,6 +20,11 @@
     "pulseaudio",
     "battery"
   ],
+  "clock": {
+    "format": "{:L%A %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip": false
+  },
   "niri/workspaces": {
     "active-only": false,
     "all-outputs": false,
@@ -30,11 +35,6 @@
       "visible": "󱓻",
       "empty": "◦"
     }
-  },
-  "clock": {
-    "format": "{:L%A %H:%M}",
-    "format-alt": "{:L%d %B W%V %Y}",
-    "tooltip": false
   },
   "network": {
     "interface": "wl*",
