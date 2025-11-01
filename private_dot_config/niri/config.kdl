@@ -78,6 +78,7 @@ layout {
 }
 
 spawn-at-startup "waybar"
+spawn-sh-at-startup "swaybg -c 3B224C"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular -all-mime-type-regex '^(?!x-kde-passwordManagerHint).+'"
 
 hotkey-overlay {
