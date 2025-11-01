@@ -55,9 +55,6 @@
     "interval": 3,
     "spacing": 1
   },
-  "disk": {
-    "format": "DSK {percentage_used}"
-  },
   "battery": {
     "format": "{icon}",
     "format-discharging": "{icon}",
@@ -120,19 +117,6 @@
         "=========-",
         "=========="
       ]
-    }
-  },
-  "bluetooth": {
-    "format": "BLU",
-    "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "blueberry"
-  },
-  "tray": {
-    "icon-size": 14,
-    "spacing": 12,
-    "show-passive-items": false,
-    "icons": {
-      "Input Method": "bluetooth"
     }
   }
 }
