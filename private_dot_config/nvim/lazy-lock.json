@@ -1,6 +1,6 @@
 {
   "helix-nvim": { "branch": "main", "commit": "c2875fb19df7f3624d0ae1c82b063fc14de1d64b" },
+  "hop.nvim": { "branch": "master", "commit": "08ddca799089ab96a6d1763db0b8adc5320bf050" },
   "lazy.nvim": { "branch": "main", "commit": "db067881fff0fd4be8c00e5bde7492e0e1c77a2f" },
-  "mini.nvim": { "branch": "main", "commit": "e96ef335c7c68d2bc6359cdb7cf0941889df9be0" },
-  "multicursor.nvim": { "branch": "1.0", "commit": "0c6ceae228bf209e8b8717df9de500770c4e7022" }
+  "mini.nvim": { "branch": "main", "commit": "e96ef335c7c68d2bc6359cdb7cf0941889df9be0" }
 }
