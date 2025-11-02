@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+set skip 1
+
+niri msg --json event-stream | jq -c --unbuffered 'select(.OverviewOpenedOrClosed != null)' | while read -l event
+	if test $skip -eq 1
+		set skip 0
+		continue
+	end
+	killall -SIGUSR1 waybar
+end
