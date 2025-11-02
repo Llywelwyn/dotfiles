@@ -243,4 +243,5 @@ binds {
     
     // Notifications.
     Mod+Ctrl+Comma { spawn-sh "makoctl dismiss"; }
+    Mod+Ctrl+Period { spawn-sh "makoctl dismiss -a"; }
 }
