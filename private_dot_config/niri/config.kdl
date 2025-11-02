@@ -138,6 +138,14 @@ window-rule {
 }
 
 binds {
+    // Mod + K:     Hotkeys
+    //     + O:     Overview
+    //     + W:     Close
+    //     + Enter: Terminal
+    //     + Space: App Launcher
+    //     + F:     Files
+    //     + B:     Browser
+    //     + D:     Discord
     Mod+K                 { show-hotkey-overlay; }
     Mod+O                 repeat=false           { toggle-overview; }
     Mod+W                 repeat=false           { close-window; }
@@ -146,7 +154,8 @@ binds {
     Mod+Space             { spawn "fuzzel"; }
     Mod+F                 { spawn-sh "uwsm app -- nautilus --new-window"; }
     Mod+B                 { spawn "chromium"; }
-
+    Mod+D                 { spawn "vesktop"; }
+    
     // Media controls.
     XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
