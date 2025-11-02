@@ -6,7 +6,7 @@ return {
       keys = 'etovxqpdygfblzhckisuran'
     },
     keys = {
-      { "gw", "<cmd>HopWord<CR>", mode = "n", desc = "Hop to word" }, 
+      { "gw", "<cmd>HopWord<CR>", mode = { "n", "x" }, desc = "Hop to word" }, 
     },
   }
 }

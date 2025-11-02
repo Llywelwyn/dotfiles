@@ -1,6 +1,17 @@
 return {
-  { 'nvim-mini/mini.completion', version = false },
-  { 'rafamadriz/friendly-snippets' },
+  {
+    'saghen/blink.cmp',
+    dependencies = { 'rafamadriz/friendly-snippets' },
+    version = '1.*',
+    opts = {
+      keymap = { preset = 'super-tab' },
+      appearance = { nerd_font_variant = 'mono' },
+      completion = { documentation = { auto_show = true, auto_show_delay_ms = 0 } },
+      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+    },
+    opts_extend = { "sources.default"}
+  },
   {
     'nvim-mini/mini.snippets',
     opts = function()
@@ -12,5 +23,14 @@ return {
         }
       }
     end
+  },
+  {
+    'chrisgrieser/nvim-scissors',
+    opts = { snippetDir = vim.fn.stdpath("config") .. "/snippets" },
+    keys = {
+      { "<C-s>", "<cmd>ScissorsAddNewSnippet<CR>", mode = { "x" }, desc = "Save selection as snippet" }, 
+      { "<C-e>", "<cmd>ScissorsEditSnippet<CR>", mode = { "n", "x" }, desc = "Edit existing snippet" },
+    },
   }
 }
+
