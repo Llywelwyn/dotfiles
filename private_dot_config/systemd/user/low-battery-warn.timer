@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for Low Battery Warning
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=2min
+Unit=low-battery-warn.service
+
+[Install]
+WantedBy=timers.target
