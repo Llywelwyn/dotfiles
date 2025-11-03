@@ -1,0 +1,7 @@
+background-color=#3b224c
+text-color=#eeeeee
+border-color=#999999
+default-timeout=5000
+anchor=top-center
+margin=13,5,5,5
+icons=1
