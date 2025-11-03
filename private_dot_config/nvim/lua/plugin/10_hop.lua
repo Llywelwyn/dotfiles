@@ -37,7 +37,7 @@ return {
       vim.keymap.set({ "n", "x", "o" }, "gw", hop_word_smart,      { desc = "hop to word" })
       vim.keymap.set({ "n", "x", "o" }, "gl", "<cmd>HopChar1MW<CR>",     { desc = "hop to char" })
       vim.keymap.set({ "n", "x", "o" }, "g:", "<cmd>HopLineStartMW<CR>", { desc = "hop to line" })
-      vim.keymap.set({ "n", "x", "o" }, "gn", "<cmd>HopNodes<CR>",       { desc = "hop nodes" })
+      vim.keymap.set({ "n", "x", "o" }, "gt", "<cmd>HopNodes<CR>",       { desc = "hop to ts" })
       vim.keymap.set({ "n", "x", "o" }, "gp", hop_pattern_smart,   { desc = "hop to pattern" })
       -- stylua: ignore end
     end,
