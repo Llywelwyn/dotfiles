@@ -8,4 +8,4 @@ icons=1
 format=<b>(%a) %s</b>\n%b
 
 [mode=do-not-disturb]
-format=<b>(%a)</b>
+format=<b>(%a) %s - DND</b>
