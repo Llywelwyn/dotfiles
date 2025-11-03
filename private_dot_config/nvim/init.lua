@@ -20,6 +20,7 @@
 -- ├──── 25_git.lua           Gitsigns
 -- ├──── 30_formatting.lua    vim-sleuth and conform formatting configs
 -- ├──── 35_yanky.lua         Yank and Put improvements
+-- ├──── 40_ai.lua            Github Copilot integration, CodeCompanion,etc.
 -- ├ snippets/               Snippets definitions are in here
 -- ├── package.json           Snippet repository metadata
 -- ├── global.json            Global text snippets
