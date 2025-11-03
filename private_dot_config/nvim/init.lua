@@ -12,6 +12,7 @@
 -- ├──── 00_colorscheme.lua   Sets theme
 -- ├──── 01_whichkey.lua      Displays keymaps on input
 -- ├──── 02_sleuth.lua        Auto-adjusting shiftwidth and expandtab based on current file
+-- ├──── 03_treesitter.lua    Does anybody know what this does?
 -- ├──── 05_fzf.lua           Pickers with fzf-lua
 -- ├──── 10_hop.lua           Enables hopping to words in the current buffer
 -- ├──── 15_lsp.lua           Mason, LSP configurations

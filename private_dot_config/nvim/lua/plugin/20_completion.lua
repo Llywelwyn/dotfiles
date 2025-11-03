@@ -1,4 +1,5 @@
 return {
+  { 'nvim-mini/mini.pairs', opts = {} },
   {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets' },
