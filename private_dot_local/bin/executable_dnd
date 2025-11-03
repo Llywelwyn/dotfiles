@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# -----------------------------
+# simple_mako_toggle.sh
+# Toggle Mako notification modes
+# -----------------------------
+
+# Colors
+GREEN="\033[1;32m"
+YELLOW="\033[1;33m"
+BLUE="\033[1;34m"
+RESET="\033[0m"
+
+# Default mapping for "dnd"
+DEFAULT_FLAG="do-not-disturb"
+
+# Get the flag to toggle
+FLAG="${1:-dnd}"
+if [[ "$FLAG" == "dnd" ]]; then
+    FLAG="$DEFAULT_FLAG"
+fi
+
+# Function to check if a flag is active
+is_active() {
+    local f="$1"
+    makoctl mode | grep -qw "$f"
+}
+
+# Function to toggle a flag
+toggle_flag() {
+    local f="$1"
+    if is_active "$f"; then
+        makoctl mode -r "$f" >/dev/null 2>&1
+        echo -e "${YELLOW}[Mako] Removed mode: $f${RESET}"
+    else
+        makoctl mode -a "$f" >/dev/null 2>&1
+        echo -e "${GREEN}[Mako] Activated mode: $f${RESET}"
+    fi
+}
+
+# Function to list other active modes (excluding default and the toggled flag)
+list_other_modes() {
+    local exclude="$1"
+    other_modes=$(makoctl mode | grep -vwE "$exclude|default")
+    if [[ -n "$other_modes" ]]; then
+        echo -e "${BLUE}[Mako] Other active modes: $other_modes${RESET}"
+    fi
+}
+
+# Main execution
+echo -e "${BLUE}[Mako] Updating Mako notification modes...${RESET}"
+
+# Toggle the requested flag
+toggle_flag "$FLAG"
+
+# List other active modes
+list_other_modes "$FLAG"
