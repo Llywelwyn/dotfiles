@@ -1,0 +1,11 @@
+[Unit]
+Description=Enable Mako DND Thursday 01:15
+
+[Timer]
+OnCalendar=Thu *-*-* 01:15:00
+Persistent=true
+Unit=mako-dnd-on.service
+
+[Install]
+WantedBy=timers.target
+

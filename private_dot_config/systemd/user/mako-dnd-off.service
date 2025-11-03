@@ -1,0 +1,6 @@
+[Unit]
+Description=Enable Mako do-not-disturb
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/makoctl mode -r do-not-disturb

@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable Mako DND Mon-Fri 19:00
+
+[Timer]
+OnCalendar=Mon..Fri *-*-* 19:00:00
+Persistent=true
+Unit=mako-dnd-off.service
+
+[Install]
+WantedBy=timers.target
+
