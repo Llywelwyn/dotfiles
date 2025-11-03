@@ -2,7 +2,10 @@ return {
   { "nvim-mini/mini.pairs", opts = {} },
   {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "fang2hou/blink-copilot",
+    },
     version = "1.*",
     opts = {
       keymap = { preset = "super-tab" },
@@ -10,7 +13,17 @@ return {
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 0 },
       },
-      sources = { default = { "lsp", "path", "snippets", "buffer" } },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
+      },
       fuzzy = { implementation = "prefer_rust_with_warning" },
       cmdline = {
         keymap = { preset = "inherit" },

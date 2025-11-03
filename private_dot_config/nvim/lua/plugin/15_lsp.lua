@@ -1,7 +1,9 @@
 return {
   {
     "mason-org/mason-lspconfig.nvim",
-    opts = {},
+    opts = {
+      ensure_installed = { "copilot" },
+    },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       { "neovim/nvim-lspconfig" },
