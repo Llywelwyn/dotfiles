@@ -28,8 +28,8 @@ return {
     'chrisgrieser/nvim-scissors',
     opts = { snippetDir = vim.fn.stdpath("config") .. "/snippets" },
     keys = {
-      { "<C-s>", "<cmd>ScissorsAddNewSnippet<CR>", mode = { "x" }, desc = "Save selection as snippet" }, 
-      { "<C-e>", "<cmd>ScissorsEditSnippet<CR>", mode = { "n", "x" }, desc = "Edit existing snippet" },
+      { "<leader>sa", "<cmd>ScissorsAddNewSnippet<CR>", mode = { "n", "x" }, desc = "Save selection as snippet" }, 
+      { "<leader>se", "<cmd>ScissorsEditSnippet<CR>", mode = { "n", "x" }, desc = "Edit existing snippet" },
     },
   }
 }
