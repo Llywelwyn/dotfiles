@@ -9,6 +9,7 @@ input {
     }
     touchpad {
         tap
+        dwt
         dwtp
         accel-profile "flat"
         scroll-method "two-finger"
