@@ -7,9 +7,6 @@ end
 local nmap_leader = function(lhs, rhs, desc)
   vim.keymap.set('n', '<Leader>' .. lhs, rhs, { desc = desc })
 end
-local unmap = function(lhs, rhs)
-  vim.keymap.del(lhs, rhs)
-end
 -- Keymaps ====================================================
 nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste above')
 nmap(']p', '<Cmd>exe "put "  . v:register<Cr>', 'Paste below')

@@ -10,6 +10,9 @@
 -- ├──── 30_autocmds.lua      Custom autocmds
 -- ├── plugin/               Plugins for lazy.nvim are in here
 -- ├──── 00_colorscheme.lua   Sets theme
+-- ├──── 01_whichkey.lua      Displays keymaps on input
+-- ├──── 02_sleuth.lua        Auto-adjusting shiftwidth and expandtab based on current file
+-- ├──── 05_fzf.lua           Pickers with fzf-lua
 -- ├──── 10_hop.lua           Enables hopping to words in the current buffer
 -- ├──── 15_lsp.lua           Mason, LSP configurations
 -- ├──── 20_completion.lua    Autocompletion with blink.cmp, and mini.snippets
