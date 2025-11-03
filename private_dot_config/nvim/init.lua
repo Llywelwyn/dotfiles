@@ -14,10 +14,12 @@
 -- ├──── 03_treesitter.lua    Does anybody know what this does?
 -- ├──── 05_fzf.lua           Pickers with fzf-lua
 -- ├──── 10_hop.lua           Enables hopping to words in the current buffer
+-- ├──── 11_eyeliner.lua      Highligts unique chars in words on f/F
 -- ├──── 15_lsp.lua           Mason, LSP configurations
 -- ├──── 20_completion.lua    Autocompletion with blink.cmp, and mini.snippets
 -- ├──── 25_git.lua           Gitsigns
 -- ├──── 30_formatting.lua    vim-sleuth and conform formatting configs
+-- ├──── 35_yanky.lua         Yank and Put improvements
 -- ├ snippets/               Snippets definitions are in here
 -- ├── package.json           Snippet repository metadata
 -- ├── global.json            Global text snippets
