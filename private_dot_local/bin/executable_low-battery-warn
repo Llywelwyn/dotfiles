@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+THRESHOLD=10
+EXPIRY_MS=2*60*1000 # 2 minutes
+
+# Find the battery device (first one found)
+BATTERY=$(upower -e | grep battery | head -n1)
+
+# If no battery found, exit
+if [ -z "$BATTERY" ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') No battery found. Exiting."
+    exit 0
+fi
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') Battery device: $BATTERY"
+
+# Get battery state and percentage
+STATE=$(upower -i "$BATTERY" | awk '/state:/ {print $2}')
+PERCENT=$(upower -i "$BATTERY" | awk -F'[:%]' '/percentage:/ {gsub(/ /,"",$2); print $2}')
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') Battery state: $STATE, percentage: $PERCENT"
+
+# Only notify if discharging and below threshold
+if [ "$STATE" = "discharging" ] && [ "$PERCENT" -lt "$THRESHOLD" ]; then
+    notify-send -u critical -t "$EXPIRY_MS" "Battery low" "Battery at ${PERCENT}% and discharging."
+    echo "$(date '+%Y-%m-%d %H:%M:%S') Notification sent: Battery at ${PERCENT}% and discharging."
+fi
