@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+#
+# make-pwa
+# makes a chromium PWA desktop entry for the given url
+
+set -e
+
+usage() {
+  echo "Usage:"
+  echo "  $0 create <name> <url>"
+  echo "  $0 delete <name>"
+  exit 1
+}
+
+if [ "$#" -lt 2 ]; then
+  usage
+fi
+
+ACTION="$1"
+NAME="$2"
+DESKTOP_DIR="$HOME/.local/share/applications"
+DESKTOP_FILE="$DESKTOP_DIR/pwa-${NAME}.desktop"
+ICON_DIR="$HOME/.local/share/icons"
+ICON_FILE="$ICON_DIR/pwa-${NAME}.ico"
+PNG_ICON_FILE="$ICON_DIR/pwa-${NAME}.png"
+
+fetch_favicon() {
+  URL="$1"
+  mkdir -p "$ICON_DIR"
+  FAVICON_URL="${URL}/favicon.ico"
+  if curl -fsSL -A "Mozilla/5.0" "$FAVICON_URL" -o "$ICON_FILE"; then
+    if command -v convert >/dev/null 2>&1; then
+      if magick "$ICON_FILE[-1]" "$PNG_ICON_FILE"; then
+        echo "$PNG_ICON_FILE"
+      else
+        echo ""
+      fi
+    else
+      echo "$ICON_FILE"
+    fi
+  else
+    echo ""
+  fi
+}
+
+case "$ACTION" in
+  create)
+    if [ "$#" -lt 3 ]; then
+      usage
+    fi
+    URL="$3"
+    if [ "$#" -ge 4 ]; then
+      ICON_PATH="$4"
+    else
+        ICON_PATH=$(fetch_favicon "$URL")
+        if [ -z "$ICON_PATH" ]; then
+          ICON_BASENAME="web-browser"
+        else
+          # Remove extension for .desktop Icon field if it's a PNG in ICON_DIR
+          if [[ "$ICON_PATH" == "$ICON_DIR"/*.png ]]; then
+            ICON_BASENAME="$(basename "$ICON_PATH" .png)"
+          else
+            ICON_BASENAME="$ICON_PATH"
+          fi
+        fi
+    fi
+    mkdir -p "$DESKTOP_DIR"
+      cat > "$DESKTOP_FILE" <<EOF
+      [Desktop Entry]
+      Version=1.0
+      Type=Application
+      Name=$NAME
+      Exec=chromium --app=$URL
+      Icon=$ICON_BASENAME
+      Terminal=false
+      Categories=Network;WebBrowser;
+EOF
+    chmod +x "$DESKTOP_FILE"
+    echo "Created desktop entry: $DESKTOP_FILE"
+    ;;
+  delete)
+    if [ -f "$DESKTOP_FILE" ]; then
+      rm "$DESKTOP_FILE"
+      echo "Deleted desktop entry: $DESKTOP_FILE"
+    else
+      echo "Desktop entry not found: $DESKTOP_FILE"
+    fi
+    if [ -f "$ICON_FILE" ]; then
+      rm "$ICON_FILE"
+      echo "Deleted icon file: $ICON_FILE"
+    fi
+    ;;
+  *)
+    usage
+    ;;
+esac
+
