@@ -29,13 +29,14 @@ return {
         },
       },
     },
-    -- stylua: ignore
+    -- stylua: ignore start
     keys = {
       { "<leader>ac", mode = { "n", "v" }, "<cmd>CodeCompanionChat Toggle<cr>", desc = "toggle chat" },
       { "<leader>ai", mode = { "n", "v" }, "<cmd>CodeCompanionActions<cr>",     desc = "actions picker" },
       { "<leader>y",  mode = { "v" },      "<cmd>CodeCompanionChat Add<cr>",    desc = "put in chat",  },
+      { "<leader>ap", mode = { "n", "v" }, "<cmd>CodeCompanion<cr>",            desc = "in-line prompt",  },
     },
-    -- stylua: unignore
+    -- stylua: ignore end
     opts = {
       strategies = {
         chat = {

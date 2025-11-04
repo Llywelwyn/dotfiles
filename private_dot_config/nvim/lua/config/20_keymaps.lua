@@ -16,3 +16,9 @@ nmap_leader('aa', '<Cmd>lua vim.lsp.buf.code_action()<CR>',    'lsp code action'
 nmap_leader('ar', '<Cmd>lua vim.lsp.buf.rename()<CR>',         'lsp rename')
 nmap_leader('fi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', 'lsp find implementation')
 nmap_leader('fr', '<Cmd>lua vim.lsp.buf.references()<CR>',     'lsp find references')
+
+for i = 1, 6 do
+  nmap_leader(i, i .. "<c-w>w", "move to " .. i)
+end
+nmap_leader(';', '<Cmd>vsplit<CR>', 'vsplit')
+nmap_leader('-', '<Cmd>split<CR>', 'hsplit')
