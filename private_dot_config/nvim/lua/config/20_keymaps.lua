@@ -22,3 +22,8 @@ for i = 1, 6 do
 end
 nmap_leader(';', '<Cmd>vsplit<CR>', 'vsplit')
 nmap_leader('-', '<Cmd>split<CR>', 'hsplit')
+
+nmap_leader('j', '<Cmd>resize +10<CR>', 'bigger height')
+nmap_leader('k', '<Cmd>resize -10<CR>', 'smaller height')
+nmap_leader('l', '<Cmd>vertical resize +20<CR>', 'bigger width')
+nmap_leader('h', '<Cmd>vertical resize -20<CR>', 'smaller width')
