@@ -11,7 +11,6 @@ function cmp.window()
 end
 
 local statusline = {
-  '^%{%v:lua._statusline_component("window")%} ',
   "%r",
   "%m",
   "%=",

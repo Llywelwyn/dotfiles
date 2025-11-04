@@ -23,7 +23,8 @@
 -- │       ├ 30_formatting.lua   -- Formatting (vim-sleuth, conform)
 -- │       ├ 35_yanky.lua        -- Yank and put enhancements
 -- │       ├ 38_oil.lua          -- Treat filesystem as a buffer
--- │       └ 40_ai.lua           -- AI integrations
+-- │       ├ 40_ai.lua           -- AI integrations
+-- │       └ 45_tmux.lua         -- Tmux integrations
 -- └ snippets/               -- Snippet definitions
 --     ├ package.json            -- Snippet repository metadata
 --     ├ global.json             -- Global text snippets
