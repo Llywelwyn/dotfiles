@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-THRESHOLD=80
+THRESHOLD=15
 EXPIRY_MS=120000 # 2 minutes
 
 # Find the battery device (first one found)
