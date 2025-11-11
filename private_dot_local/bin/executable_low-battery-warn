@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-THRESHOLD=10
-EXPIRY_MS=2*60*1000 # 2 minutes
+THRESHOLD=80
+EXPIRY_MS=120000 # 2 minutes
 
 # Find the battery device (first one found)
 BATTERY=$(upower -e | grep battery | head -n1)
