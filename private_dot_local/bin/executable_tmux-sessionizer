@@ -1,48 +1,65 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# Adapted tmux sessionizer for ~/src/github/username/reponame layout
-
-SEARCH_PATHS=(
-    "$HOME/src/github"
+# Each entry: PATH|minDepth|maxDepth
+SEARCH_SPECS=(
+  "$HOME/src/github|2|2"     # username/repo
+  "$HOME/.config|0|1"        # each folder in ~/.config
+  "$HOME/.local/bin|0|0"
 )
 
+# Optional: override via env, e.g.
+# SESSIONIZER_SPECS="$HOME/work|1|2,$HOME/projects|2|2"
+IFS=',' read -r -a _OVERRIDE <<< "${SESSIONIZER_SPECS:-}"
+if [[ ${#_OVERRIDE[@]} -gt 0 && -n ${_OVERRIDE[0]} ]]; then
+  SEARCH_SPECS=("${_OVERRIDE[@]}")
+fi
+unset _OVERRIDE
+
+collect() {
+  local path min max
+  for spec in "${SEARCH_SPECS[@]}"; do
+    IFS='|' read -r path min max <<<"$spec"
+    [[ -d $path ]] || continue
+    find "$path" -mindepth "$min" -maxdepth "$max" -type d 2>/dev/null
+  done
+}
+
 if [[ $# -eq 1 ]]; then
-    selected=$1
+  selected=$1
 else
-    # Find all directories two levels deep under ~/src/github (username/repo)
-    selected=$(find "${SEARCH_PATHS[@]}" -mindepth 2 -maxdepth 2 -type d | fzf)
+  if command -v fd >/dev/null 2>&1; then
+    mapfile -t CANDIDATES < <(collect | sort -u)
+    selected=$(printf '%s\n' "${CANDIDATES[@]}" | fzf)
+  else
+    selected=$(collect | sort -u | fzf)
+  fi
 fi
 
-# Exit if nothing selected
-[[ -z $selected ]] && exit 0
+[[ -z ${selected:-} ]] && exit 0
 
-selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
+selected_name=$(basename "$selected" | tr -c '[:alnum:]' '_' | sed 's/^_*$/'"sess_$(date +%s)"'/' | sed 's/_$//')
+tmux_running=$(pgrep tmux || true)
 
-# Start tmux if not running
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s "$selected_name" -c "$selected"
-    exit 0
+if [[ -z ${TMUX:-} ]] && [[ -z $tmux_running ]]; then
+  exec tmux new-session -s "$selected_name" -c "$selected"
 fi
 
-if ! tmux has-session -t="$selected_name" 2> /dev/null; then
-    # Create a new session and rename the first window to Shell.
-    tmux new-session -ds "$selected_name" -c "$selected"
-    tmux rename-window -t "$selected_name:" "shell"
-    # Create a second window for Neovim.
-    tmux new-window -t "$selected_name:" -c "$selected" -n "neovim"
-    tmux send-keys -t "$selected_name:neovim" "nvim" Enter
-    # Create a window for git only if this is a git repository.
-    if [[ -d "$selected/.git" ]]; then
-        tmux new-window -t "$selected_name:" -c "$selected" -n "git"
-        tmux send-keys -t "$selected_name:git" "lazygit" Enter
-    fi
-    # Start with the Shell window selected.
-    tmux select-window -t "$selected_name:shell"
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+  tmux new-session -ds "$selected_name" -c "$selected"
+  tmux rename-window -t "$selected_name:" "shell"
+  tmux new-window -t "$selected_name:" -c "$selected" -n "neovim"
+  tmux send-keys -t "$selected_name:neovim" "nvim" Enter
+  if [[ -d "$selected/.git" ]]; then
+    tmux new-window -t "$selected_name:" -c "$selected" -n "git"
+    tmux send-keys -t "$selected_name:git" "lazygit" Enter
+  fi
+  tmux select-window -t "$selected_name:neovim"
 fi
 
-if [[ -z $TMUX ]]; then
-    tmux attach -t "$selected_name"
+if [[ -z ${TMUX:-} ]]; then
+  tmux attach -t "$selected_name"
 else
-    tmux switch-client -t "$selected_name"
+  tmux switch-client -t "$selected_name"
 fi
+i
