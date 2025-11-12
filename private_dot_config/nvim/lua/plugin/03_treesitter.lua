@@ -1,15 +1,15 @@
 return {
   {
-    'nvim-treesitter/nvim-treesitter',
-    branch = 'master',
+    "nvim-treesitter/nvim-treesitter",
+    branch = "master",
     lazy = false,
-    build = ":TSUpdate"
+    build = ":TSUpdate",
   },
   {
-    'nvim-treesitter/nvim-treesitter-context',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       require("treesitter-context").setup()
     end,
-  }
+  },
 }

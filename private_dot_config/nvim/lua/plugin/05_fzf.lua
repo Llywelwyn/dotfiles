@@ -2,7 +2,7 @@ return {
   {
     "ibhagwan/fzf-lua",
     dependencies = { { "nvim-mini/mini.icons" } },
-    epts = {
+    opts = {
       winopts = {
         preview = {
           vertical = "down:65%",
@@ -20,11 +20,8 @@ return {
       { "<leader>ff", "<cmd>FzfLua files<CR>",           mode = { "n" }, desc = "fzf files" },
       { "<leader>fg", "<cmd>FzfLua live_grep<CR>",       mode = { "n" }, desc = "fzf grep" },
       { "<leader>fh", "<cmd>FzfLua command_history<CR>", mode = { "n" }, desc = "fzf cmd history" },
-      -- <leader>fi --> lsp find implementation
       { "<leader>fk", "<cmd>FzfLua keymaps<CR>",         mode = { "n" }, desc = "fzf keymaps" },
-      { "<leader>fl", "<cmd>FzfLua blines<CR>",          mode = { "n" }, desc = "fzf bufferlines" },
-      { "<leader>fo", "<cmd>FzfLua oldfiles<CR>",        mode = { "n" }, desc = "fzf oldfiles" },
-      -- <leader>fr --> lsp find references
+      { "<leader>fr", "<cmd>FzfLua oldfiles<CR>",        mode = { "n" }, desc = "fzf oldfiles" },
       { "<leader>fs", "<cmd>FzfLua<CR>",                 mode = { "n" }, desc = "fzf something else" },
     },
   },
