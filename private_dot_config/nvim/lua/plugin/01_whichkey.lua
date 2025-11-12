@@ -9,9 +9,9 @@ return {
       end,
       spec = {
         { "<leader>f", group = "find" },
-        { "<leader>a", group = "lsp action" },
-        { "<leader>s", group = "snippet" },
-        { "<leader>e", group = "edit config" },
+        { "<leader>a", group = "ai" },
+        { "<leader>c", group = "lsp actions" },
+        { "<leader>s", group = "snippets" },
       },
     },
     keys = {
@@ -20,7 +20,7 @@ return {
         function()
           require("which-key").show({ global = true })
         end,
-        desc = "buffer local keymaps",
+        desc = "show local keymaps",
       },
     },
   },
