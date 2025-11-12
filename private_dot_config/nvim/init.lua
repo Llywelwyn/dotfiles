@@ -37,4 +37,4 @@ require("config.20_keymaps")
 require("config.30_autocmds")
 require("config.40_statusline")
 
-vim.cmd.colorscheme("helix")
+vim.cmd.colorscheme("colibri")
