@@ -2,7 +2,11 @@ return {
   {
     "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
-    opts = {},
+    opts = {
+      user_default_options = {
+        names = false,
+      },
+    },
   },
   {
     "karb94/neoscroll.nvim",

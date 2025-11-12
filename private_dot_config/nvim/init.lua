@@ -3,12 +3,14 @@
 -- Configuration Structure:
 -- ├ init.lua                -- Bootstraps config (you are here)
 -- ├ lua/
+-- │   ├ colors/             -- colorscheme definitions
+-- │   │   ├ colibri.lua         -- the Helix theme
 -- │   ├ config/             -- Startup configuration files
 -- │   │   ├ 00_lazy.lua         -- Bootstraps lazy.nvim
 -- │   │   ├ 10_opts.lua         -- Built-in Neovim options
 -- │   │   ├ 20_keymaps.lua      -- Custom keymaps
 -- │   │   ├ 30_autocmds.lua     -- Custom autocommands
--- │   │   └ 40_statusline.lua   -- Minimal statusline, showing win num
+-- │   │   └ 40_statusline.lua   -- Minimal statusline
 -- │   └ plugin/             -- Plugin configurations for lazy.nvim
 -- │       ├ 00_colorscheme.lua  -- Sets colorscheme/theme
 -- │       ├ 01_whichkey.lua     -- Displays keymaps on input
