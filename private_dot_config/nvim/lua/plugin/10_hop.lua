@@ -25,7 +25,7 @@ return {
 
       local function hop_pattern_smart()
         ---@diagnostic disable-next-line: missing-fields
-        hop.hint_patterns({ multi_windows = true })
+        hop.hint_char2({ multi_windows = true })
         if_visual("normal! iw")
       end
 
