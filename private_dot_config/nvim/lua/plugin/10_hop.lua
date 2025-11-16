@@ -1,39 +1,45 @@
 return {
   {
-    "smoka7/hop.nvim",
-    version = "*",
+    "ggandor/leap.nvim",
     config = function()
-      local hop = require("hop")
-      hop.setup({
-        jump_on_sole_occurrence = true,
-      })
+      require("leap").opts.preview = function(ch0, ch1, ch2)
+        return not (
+          ch1:match("%s")
+          or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a"))
+        )
+      end
 
-      local function if_visual(...)
-        local mode = vim.fn.mode()
-        if mode == "v" then
-          for _, cmd in ipairs({ ... }) do
-            vim.cmd(cmd)
+      -- hop label at start of word, rather than the end
+      require("leap").opts.on_beacons = function(targets, _, _)
+        for _, t in ipairs(targets) do
+          if t.label and t.beacon then
+            t.beacon[1] = 0
           end
         end
       end
 
-      local function hop_word_smart()
-        ---@diagnostic disable-next-line: missing-fields
-        hop.hint_words({ multi_windows = true })
-        if_visual("normal! iw")
-      end
+      -- gray out backdrop when selecting
+      vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 
-      local function hop_pattern_smart()
-        ---@diagnostic disable-next-line: missing-fields
-        hop.hint_char2({ multi_windows = true })
-        if_visual("normal! iw")
-      end
+      require("leap").opts.equivalence_classes = {
+        " \t\r\n",
+        "([{",
+        ")]}",
+        "'\"`",
+      }
 
-      -- stylua: ignore start
-      vim.keymap.set({ "n", "x", "o" }, "gw", hop_word_smart,      { desc = "hop to word" })
-      vim.keymap.set({ "n", "x", "o" }, "gt", "<cmd>HopNodes<CR>", { desc = "hop to ts" })
-      vim.keymap.set({ "n", "x", "o" }, "s",  hop_pattern_smart,   { desc = "hop to pattern" })
-      -- stylua: ignore end
+      vim.keymap.set({ "n", "x", "o" }, "s", function()
+        require("leap").leap({ target_windows = vim.api.nvim_list_wins() })
+        if vim.fn.mode() == "v" then
+          vim.cmd("normal! iw")
+        end
+      end)
+
+      vim.keymap.set({ "n", "o" }, "gs", function()
+        require("leap.remote").action({
+          input = vim.fn.mode(true):match("o") and "" or "v",
+        })
+      end)
     end,
   },
 }
