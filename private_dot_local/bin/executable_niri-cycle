@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+next="focus-column-right-or-first"
+
+if [[ "${1:-}" == "--back" ]]; then
+  next="focus-column-left-or-last"
+fi
+
+niri msg action "$next"
+niri msg action center-column
