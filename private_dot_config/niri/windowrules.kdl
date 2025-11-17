@@ -1,0 +1,37 @@
+window-rule {
+    open-maximized false
+}
+
+window-rule {
+    match is-focused=false
+    opacity 0.9
+}
+
+window-rule {
+    match is-focused=true
+    opacity 0.97
+}
+
+window-rule {
+    match title="Chromium"
+    match is-focused=true
+    opacity 1.0
+}
+
+window-rule {
+    match title="Chromium"
+    match is-focused=false
+    opacity 0.97
+}
+
+window-rule {
+    match title="youtube"
+    match title="netflix"
+    opacity 1.0
+}
+
+window-rule {
+    match title="^launcher$"
+    open-floating true
+    open-focused true
+}

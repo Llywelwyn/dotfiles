@@ -1,36 +1,10 @@
-// https://yalter.github.io/niri/Configuration:-Input
-input {
-    keyboard {
-        xkb {
-            layout "gb"
-            options "compose:caps"
-        }
-        numlock
-    }
-    touchpad {
-        tap
-        dwt
-        dwtp
-        accel-profile "flat"
-        scroll-method "two-finger"
-    }
-    mouse {
-        accel-profile "flat"
-    }
-    trackpoint {
-        accel-profile "flat"
-    }
-    warp-mouse-to-focus
-    focus-follows-mouse max-scroll-amount="90%"
-}
-
-// https://yalter.github.io/niri/Configuration:-Output
-output "eDP-1" {
-    mode "1920x1080@60"
-    scale 1
-    transform "normal"
-    position x=1920 y=0
-}
+include "input.kdl"
+include "output.kdl"
+include "overview.kdl"
+include "animations.kdl"
+include "binds.kdl"
+include "windowrules.kdl"
+include "startup.kdl"
 
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
@@ -38,11 +12,11 @@ layout {
     center-focused-column "never"
     always-center-single-column
     preset-column-widths {
+        proportion 0.25
         proportion 0.33333
         proportion 0.5
-        proportion 0.66667
     }
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.33333; }
     focus-ring {
         off
     }
@@ -71,178 +45,12 @@ layout {
         color "#0007"
     }
     struts {
-        left 16
-        right 16
-        top -4
+        left 24
+        right 24
+        //top -4
         // bottom 64
     }
 }
 
-overview {
-    backdrop-color "#3B224C"
-}
-
-spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc"
-spawn-at-startup "~/.config/niri/overview-listener"
-spawn-sh-at-startup "swaybg -c 3B224C"
-spawn-sh-at-startup "wl-clip-persist --clipboard regular -all-mime-type-regex '^(?!x-kde-passwordManagerHint).+'"
-
-hotkey-overlay {
-    skip-at-startup
-}
-
 prefer-no-csd
 screenshot-path "~/dcim/pictures/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// https://yalter.github.io/niri/Configuration:-Animations
-animations {
-    // off
-    // slowdown 3.0
-}
-
-window-rule {
-    open-maximized false
-}
-
-window-rule {
-    match is-focused=false
-    opacity 0.9
-}
-
-window-rule {
-    match is-focused=true
-    opacity 0.97
-}
-
-window-rule {
-    match title="Chromium"
-    match is-focused=true
-    opacity 1.0
-}
-
-window-rule {
-    match title="Chromium"
-    match is-focused=false
-    opacity 0.97
-}
-
-window-rule {
-    match title="youtube"
-    match title="netflix"
-    opacity 1.0
-}
-
-window-rule {
-    match title="^launcher$"
-    open-floating true
-    open-focused true
-}
-
-binds {
-    // Mod + K:     Hotkeys
-    //     + O:     Overview
-    //     + W:     Close
-    //     + Enter: Terminal
-    //     + Space: App Launcher
-    //     + F:     Files
-    //     + B:     Browser
-    //     + D:     Discord
-    Mod+K                 { show-hotkey-overlay; }
-    Mod+O                 repeat=false           { toggle-overview; }
-    Mod+W                 repeat=false           { close-window; }
-
-    Mod+Return            { spawn "alacritty"; }
-    Mod+Space             { spawn "fuzzel"; }
-    Mod+F                 { spawn-sh "uwsm app -- nautilus --new-window"; }
-    Mod+B                 { spawn "chromium"; }
-    Mod+D                 { spawn "vesktop"; }
-    
-    // Media controls.
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop         allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-
-    // Changing focus.
-    Mod+Left              { focus-column-left; }
-    Mod+Down              { focus-window-or-workspace-down; }
-    Mod+Up                { focus-window-or-workspace-up; }
-    Mod+Right             { focus-column-right; }
-
-    // Moving windows.
-    Mod+Shift+Left        { move-column-left; }
-    Mod+Shift+Down        { move-window-down-or-to-workspace-down; }
-    Mod+Shift+Up          { move-window-up-or-to-workspace-up; }
-    Mod+Shift+Right       { move-column-right; }
-
-    // Focus columns.
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    
-    // Moving columns.
-    Mod+Shift+Home { move-column-to-first; }
-    Mod+Shift+End  { move-column-to-last; }
-
-    // Changing monitor focus.
-    Mod+Alt+Left  { focus-monitor-left; }
-    Mod+Alt+Down  { focus-monitor-down; }
-    Mod+Alt+Up    { focus-monitor-up; }
-    Mod+Alt+Right { focus-monitor-right; }
-
-    // Moving window to monitor.
-    Mod+Alt+Shift+Left  { move-column-to-monitor-left; }
-    Mod+Alt+Shift+Down  { move-column-to-monitor-down; }
-    Mod+Alt+Shift+Up    { move-column-to-monitor-up; }
-    Mod+Alt+Shift+Right { move-column-to-monitor-right; }
-
-    // Moving workspace to monitor.
-    Mod+Alt+Comma      { move-workspace-to-monitor-left; }
-    Mod+Alt+Period     { move-workspace-to-monitor-right; }
-
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-
-    Mod+Tab { toggle-column-tabbed-display; }
-
-    Mod+Comma  { consume-or-expel-window-left; }
-    Mod+Period { consume-or-expel-window-right; }
-
-    Mod+Semicolon { center-column; }
-    Mod+Apostrophe { switch-preset-column-width; }
-    Mod+Z { maximize-column; }
-    F11 { fullscreen-window; }
-
-    Mod+Ctrl+Left { set-column-width "-10%"; }
-    Mod+Ctrl+Right { set-column-width "+10%"; }
-    Mod+Ctrl+Down { set-window-height "-10%"; }
-    Mod+Ctrl+Up { set-window-height "+10%"; }
-
-    Mod+Shift+V { toggle-window-floating; }
-
-    Print       { screenshot; }
-    Ctrl+Print  { screenshot-screen; }
-    Alt+Print   { screenshot-window; }
-
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    Ctrl+Alt+Delete { quit; }
-    Mod+Shift+P { power-off-monitors; }
-    
-    // Notifications.
-    Mod+Ctrl+Comma { spawn-sh "makoctl dismiss"; }
-    Mod+Ctrl+Period { spawn-sh "makoctl dismiss -a"; }
-}

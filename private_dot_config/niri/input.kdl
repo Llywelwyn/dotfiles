@@ -1,0 +1,25 @@
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+            layout "gb"
+            options "compose:caps"
+        }
+        numlock
+    }
+    touchpad {
+        tap
+        dwt
+        dwtp
+        accel-profile "flat"
+        scroll-method "two-finger"
+    }
+    mouse {
+        accel-profile "flat"
+    }
+    trackpoint {
+        accel-profile "flat"
+    }
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="90%"
+}
