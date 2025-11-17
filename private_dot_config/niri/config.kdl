@@ -5,6 +5,7 @@ include "animations.kdl"
 include "binds.kdl"
 include "windowrules.kdl"
 include "startup.kdl"
+include "recentwindows.kdl"
 
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
