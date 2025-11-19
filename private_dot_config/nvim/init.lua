@@ -12,21 +12,21 @@
 -- │   │   ├ 30_autocmds.lua     -- Custom autocommands
 -- │   │   └ 40_statusline.lua   -- Minimal statusline
 -- │   └ plugin/             -- Plugin configurations for lazy.nvim
--- │       ├ 00_colorscheme.lua  -- Sets colorscheme/theme
--- │       ├ 01_whichkey.lua     -- Displays keymaps on input
--- │       ├ 03_treesitter.lua   -- Treesitter configuration
--- │       ├ 05_fzf.lua          -- Fuzzy pickers with fzf-lua
--- │       ├ 10_hop.lua          -- Enables word hopping in buffer
--- │       ├ 11_eyeliner.lua     -- Highlights unique characters for f/F
--- │       ├ 15_lsp.lua          -- Mason and LSP configurations
--- │       ├ 18_align.lua        -- Visual mode: align around "=" with ga=
--- │       ├ 20_completion.lua   -- Autocompletion (blink.cmp, mini.snippets)
--- │       ├ 25_git.lua          -- Git integration (Gitsigns)
--- │       ├ 30_formatting.lua   -- Formatting (vim-sleuth, conform)
--- │       ├ 35_yanky.lua        -- Yank and put enhancements
--- │       ├ 38_oil.lua          -- Treat filesystem as a buffer
--- │       ├ 40_ai.lua           -- AI integrations
--- │       └ 45_tmux.lua         -- Tmux integrations
+-- │       ├ 00_treesitter.lua   -- Treesitter configuration
+-- │       ├ 01_lsp.lua          -- Mason and LSP configurations
+-- │       ├ 02_completion.lua   -- Autocompletion (blink.cmp, mini.snippets)
+-- │       ├ 03_tmux.lua         -- Tmux integrations
+-- │       ├ 04_fzflua.lua       -- Fuzzy pickers with fzf-lua
+-- │       ├ 05_whichkey.lua     -- Displays keymaps on input
+-- │       ├ 06_leap.lua         -- Enables word hopping in buffer
+-- │       ├ 07_oil.lua          -- Treat filesystem as a buffer
+-- │       ├ 08_ai.lua           -- AI integrations
+-- │       ├ 09_gitsigns.lua     -- Git integration (Gitsigns)
+-- │       ├ 10_conform.lua      -- Formatting (vim-sleuth, conform)
+-- │       ├ 11_yanky.lua        -- Yank and put enhancements
+-- │       ├ 12_neoscroll.lua    -- Animations
+-- │       ├ 13_easyalign.lua    -- Visual mode: align around "=" with ga=
+-- │       └ 14_obsidian.lua     -- Obsidian vault integration
 -- └ snippets/               -- Snippet definitions
 --     ├ package.json            -- Snippet repository metadata
 --     ├ global.json             -- Global text snippets
