@@ -35,3 +35,12 @@ window-rule {
     open-floating true
     open-focused true
 }
+
+window-rule {
+    match title="RuneLite"
+    match title="Bolt Launcher"
+    match title="Proton Authenticator"
+    open-floating true
+    default-column-width {}
+    default-window-height {}
+}

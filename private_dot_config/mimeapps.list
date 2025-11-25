@@ -30,7 +30,10 @@ x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-WKH9D3.desktop
 message/rfc822=userapp-Thunderbird-WKH9D3.desktop
 x-scheme-handler/mid=userapp-Thunderbird-WKH9D3.desktop
+x-scheme-handler/discord-409416265891971072=discord-409416265891971072.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-WKH9D3.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-WKH9D3.desktop;
+x-scheme-handler/discord-409416265891971072=discord-409416265891971072.desktop;
+x-scheme-handler/discord=vesktop.desktop;

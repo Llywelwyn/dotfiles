@@ -4,6 +4,7 @@ set -euo pipefail
 # Each entry: PATH|minDepth|maxDepth
 SEARCH_SPECS=(
   "$HOME/src/github|2|2"     # username/repo
+  "$HOME/src/aur|1|1"        # AUR pkgs
   "$HOME/.config|0|1"        # each folder in ~/.config
   "$HOME/.local/bin|0|0"
 )

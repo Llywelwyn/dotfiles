@@ -9,7 +9,7 @@ include "recentwindows.kdl"
 
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
-    gaps 9
+    gaps 5
     center-focused-column "never"
     always-center-single-column
     preset-column-widths {

@@ -56,9 +56,9 @@
     "spacing": 1
   },
   "battery": {
-    "format": "{icon}",
-    "format-discharging": "{icon}",
-    "format-charging": "{icon}",
+    "format": "{icon} {capacity}",
+    "format-discharging": "{icon} {time}",
+    "format-charging": "{icon} {capacity}",
     "format-plugged": "=== AC ===",
     "format-icons": {
       "charging": [
@@ -98,7 +98,8 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon}",
+    "on-click": "wiremix",
+    "format": "{icon} {desc}",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 2,
     "format-muted": "---mute---",
