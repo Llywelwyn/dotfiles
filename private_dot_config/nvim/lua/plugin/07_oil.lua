@@ -4,6 +4,9 @@ return {
     dependencies = { { "nvim-mini/mini.icons" } },
     opts = {
       use_default_keymaps = false,
+      view_options = {
+        show_hidden = true,
+      },
       keymaps = {
         ["g?"] = { "actions.show_help", mode = "n" },
         ["<CR>"] = "actions.select",
