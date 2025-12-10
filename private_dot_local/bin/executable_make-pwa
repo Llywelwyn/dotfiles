@@ -56,24 +56,19 @@ case "$ACTION" in
         if [ -z "$ICON_PATH" ]; then
           ICON_BASENAME="web-browser"
         else
-          # Remove extension for .desktop Icon field if it's a PNG in ICON_DIR
-          if [[ "$ICON_PATH" == "$ICON_DIR"/*.png ]]; then
-            ICON_BASENAME="$(basename "$ICON_PATH" .png)"
-          else
-            ICON_BASENAME="$ICON_PATH"
-          fi
+          ICON_BASENAME="$ICON_PATH"
         fi
     fi
     mkdir -p "$DESKTOP_DIR"
       cat > "$DESKTOP_FILE" <<EOF
-      [Desktop Entry]
-      Version=1.0
-      Type=Application
-      Name=$NAME
-      Exec=chromium --app=$URL
-      Icon=$ICON_BASENAME
-      Terminal=false
-      Categories=Network;WebBrowser;
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=$NAME
+Exec=chromium --app=$URL
+Icon=$ICON_BASENAME
+Terminal=false
+Categories=Network;WebBrowser;
 EOF
     chmod +x "$DESKTOP_FILE"
     echo "Created desktop entry: $DESKTOP_FILE"

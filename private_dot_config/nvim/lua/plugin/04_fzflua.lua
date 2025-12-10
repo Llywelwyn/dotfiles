@@ -1,16 +1,21 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    dependencies = { { "nvim-mini/mini.icons" } },
-    opts = {
-      winopts = {
-        preview = {
-          vertical = "down:65%",
-          flip_columns = 120,
+    dependencies = { { "nvim-mini/mini.icons" }, { "folke/trouble.nvim" } },
+    opts = function(_, _)
+      local config = require("fzf-lua.config")
+      local actions = require("trouble.sources.fzf").actions
+      config.defaults.actions.files["ctrl-t"] = actions.open
+      return {
+        winopts = {
+          preview = {
+            vertical = "down:65%",
+            flip_columns = 120,
+          },
         },
-      },
-      files = { git_icons = true },
-    },
+        files = { git_icons = true },
+      }
+    end,
     -- stylua: ignore
     keys = {
       { '<leader>f"', "<cmd>FzfLua registers<CR>",       mode = { "n" }, desc = "fzf registers" },

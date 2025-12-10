@@ -44,3 +44,8 @@ window-rule {
     default-column-width {}
     default-window-height {}
 }
+
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    open-floating true
+}
