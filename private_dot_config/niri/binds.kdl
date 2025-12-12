@@ -18,7 +18,7 @@ binds {
     Mod+S                 { spawn "dms" "ipc" "call" "notepad" "toggle"; }
     Mod+Space             { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
 
-    Mod+Return            { spawn "alacritty"; }
+    Mod+Return            { spawn "ghostty"; }
     Mod+F                 { spawn-sh "uwsm app -- nautilus --new-window"; }
     Mod+B                 { spawn "chromium"; }
     Mod+D                 { spawn "vesktop"; }

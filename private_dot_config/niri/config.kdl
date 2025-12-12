@@ -6,6 +6,7 @@ include "binds.kdl"
 include "windowrules.kdl"
 include "startup.kdl"
 include "recentwindows.kdl"
+include "dms/colors.kdl"
 
 environment {
     QT_QPA_PLATFORM "wayland"
@@ -29,11 +30,6 @@ layout {
     }
     border {
         width 2
-        active-color "#ffc87f"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
-        active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
-        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
     tab-indicator {
 	hide-when-single-tab
@@ -49,13 +45,10 @@ layout {
         softness 3
         spread 1
         offset x=3 y=3
-        color "#0007"
     }
     struts {
-        left 24
-        right 24
-        //top -4
-        // bottom 64
+        left 16
+        right 16
     }
 }
 
