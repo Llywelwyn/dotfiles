@@ -29,7 +29,7 @@ layout {
         off
     }
     border {
-        width 2
+        width 1
     }
     tab-indicator {
 	hide-when-single-tab
