@@ -1,0 +1,51 @@
+{
+  "commandRunner": {
+    "enabled": true,
+    "history": [
+      "fuzzel",
+      "fish",
+      "bash",
+      "trest",
+      "yay -Qqet",
+      "wiremix",
+      "pipewire",
+      "neofetch",
+      "fastfetch"
+    ],
+    "terminal": "alacritty",
+    "trigger": "!",
+    "noTrigger": false
+  },
+  "grimblast": {
+    "enabled": false
+  },
+  "dankActions": {
+    "enabled": false,
+    "variants": [
+      {
+        "icon": "terminal",
+        "displayText": "",
+        "displayCommand": "",
+        "clickCommand": "notify-send 'left clicked'",
+        "middleClickCommand": "",
+        "rightClickCommand": "alacritty -e wiremix",
+        "updateInterval": 0,
+        "showIcon": true,
+        "showText": true,
+        "id": "variant_1765383859499",
+        "name": "Wiremix"
+      }
+    ]
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  },
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": []
+  }
+}
