@@ -2,7 +2,7 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "copilot" },
+      ensure_installed = {},
     },
     dependencies = {
       {
