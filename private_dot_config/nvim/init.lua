@@ -4,7 +4,8 @@
 -- ├ init.lua                -- Bootstraps config (you are here)
 -- ├ lua/
 -- │   ├ colors/             -- colorscheme definitions
--- │   │   ├ colibri.lua         -- the Helix theme
+-- │   │   ├ colibri             -- the Helix theme
+-- │   │   ├ colibri-transparent -- the Helix theme (no bg)
 -- │   ├ config/             -- Startup configuration files
 -- │   │   ├ 00_lazy.lua         -- Bootstraps lazy.nvim
 -- │   │   ├ 10_opts.lua         -- Built-in Neovim options
@@ -20,7 +21,6 @@
 -- │       ├ 05_whichkey.lua     -- Displays keymaps on input
 -- │       ├ 06_leap.lua         -- Enables word hopping in buffer
 -- │       ├ 07_oil.lua          -- Treat filesystem as a buffer
--- │       ├ 08_ai.lua           -- AI integrations
 -- │       ├ 09_gitsigns.lua     -- Git integration (Gitsigns)
 -- │       ├ 10_conform.lua      -- Formatting (vim-sleuth, conform)
 -- │       ├ 11_yanky.lua        -- Yank and put enhancements
