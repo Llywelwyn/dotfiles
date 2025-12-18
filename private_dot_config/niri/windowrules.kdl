@@ -1,51 +1,46 @@
+// ##############
+// #  DEFAULTS  #
+// ##############
+
 window-rule {
     open-maximized false
 }
 
 window-rule {
     match is-focused=false
-    opacity 0.86
+    opacity 0.94
 }
 
 window-rule {
     match is-focused=true
-    opacity 0.95
+    opacity 0.98
 }
 
-window-rule {
-    match title="Chromium"
-    match is-focused=true
-    opacity 1.0
-}
+// #############
+// # OVERRIDES #
+// #############
 
-window-rule {
-    match title="Chromium"
-    match is-focused=false
-    opacity 0.97
-}
-
-window-rule {
-    match title="youtube"
-    match title="netflix"
-    opacity 1.0
-}
-
-window-rule {
-    match title="^launcher$"
-    open-floating true
-    open-focused true
-}
-
-window-rule {
-    match title="RuneLite"
-    match title="Bolt Launcher"
-    match title="Proton Authenticator"
-    open-floating true
-    default-column-width {}
-    default-window-height {}
-}
-
+// Always opaque.
 window-rule {
     match app-id=r#"org.quickshell$"#
-    open-floating true
+    match title="[Yy]ou[Tt]ube"
+    match title="[Nn]et[Ff]lix"
+    match title="[Rr]une[Ll]ite"
+    match title="[Bb]olt [Ll]auncher"
+    match title="[Pp]roton [Aa]uthenticator"
+    exclude title="YouTube Music"
+    opacity 1.0
 }
+
+// Always floating.
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    match title="[Rr]une[Ll]ite"
+    match title="[Bb]olt [Ll]auncher"
+    match title="[Pp]roton [Aa]uthenticator"
+    match title="[Pp]icture[- ][Ii]n[- ][Pp]icture"
+    open-floating true
+    min-width 240
+    min-height 180
+}
+
