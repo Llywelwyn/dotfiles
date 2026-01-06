@@ -307,6 +307,9 @@ PluginSettings {
                     DankToggle {
                         id: showIconToggle
                         checked: true
+                        onToggled: isChecked => {
+                            checked = isChecked
+                        }
                     }
                 }
 
@@ -322,6 +325,9 @@ PluginSettings {
                     DankToggle {
                         id: showTextToggle
                         checked: true
+                        onToggled: isChecked => {
+                            checked = isChecked
+                        }
                     }
                 }
             }

@@ -1,6 +1,6 @@
 {
   "commandRunner": {
-    "enabled": true,
+    "enabled": false,
     "history": [
       "fuzzel",
       "fish",
@@ -38,14 +38,28 @@
     ]
   },
   "calculator": {
-    "enabled": true,
+    "enabled": false,
     "trigger": "="
   },
   "emojiLauncher": {
     "enabled": true
   },
   "webSearch": {
-    "enabled": true,
+    "enabled": false,
     "searchEngines": []
+  },
+  "dankDesktopWeather": {
+    "enabled": true
+  },
+  "mediaPlayer": {
+    "enabled": false
+  },
+  "desktopCommand": {
+    "enabled": true
+  },
+  "dankHooks": {
+    "enabled": true,
+    "wifiConnected": "/home/lew/.local/bin/hooks/generic",
+    "audioVolume": ""
   }
 }
