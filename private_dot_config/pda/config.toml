@@ -1,0 +1,14 @@
+display_ascii_art = true
+
+[key]
+always_prompt_delete = false
+always_prompt_overwrite = false
+
+[store]
+default_store_name = "default"
+always_prompt_delete = true
+
+[git]
+auto_fetch = false
+auto_commit = true
+auto_push = false
