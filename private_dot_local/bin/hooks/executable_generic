@@ -1,6 +1,0 @@
-#!/bin/bash
-
-HOOK_NAME="$1"
-HOOK_VALUE="$2"
-
-notify-send "$HOOK_NAME" "$HOOK_VALUE"
