@@ -17,7 +17,8 @@
     "noTrigger": false
   },
   "grimblast": {
-    "enabled": false
+    "enabled": false,
+    "saveLocation": "~/dcim/pictures/screenshots"
   },
   "dankActions": {
     "enabled": false,
@@ -61,5 +62,8 @@
     "enabled": true,
     "wifiConnected": "/home/lew/.local/bin/hooks/generic",
     "audioVolume": ""
+  },
+  "alarmClock": {
+    "enabled": true
   }
 }

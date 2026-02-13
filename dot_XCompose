@@ -1,10 +1,11 @@
-include "%L"
+# Uncomment to enable locale Compose file
+# include "%L"
 
 # https://tanukicomputing.neocities.org/posts/Compose_Key_Cheat_Sheet
 
-<Multi_key> <at>            : "lew@ily2.dev"
+<Multi_key> <at> <at>       : "lew@ily2.dev"
 <Multi_key> <minus>         : "—"
 <Multi_key> <space>         : " | "
-<Multi_key> <p> <i> <p>     : "|"
 <Multi_key> <o> <r>         : " || "
 <Multi_key> <slash>         : "\\"
+<Multi_key> <t> <f>         : "🏳️‍⚧️"

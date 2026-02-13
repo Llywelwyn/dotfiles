@@ -49,13 +49,9 @@ fi
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
   tmux new-session -ds "$selected_name" -c "$selected"
   tmux rename-window -t "$selected_name:" "shell"
-  tmux new-window -t "$selected_name:" -c "$selected" -n "neovim"
-  tmux send-keys -t "$selected_name:neovim" "nvim" Enter
-  if [[ -d "$selected/.git" ]]; then
-    tmux new-window -t "$selected_name:" -c "$selected" -n "git"
-    tmux send-keys -t "$selected_name:git" "lazygit" Enter
-  fi
-  tmux select-window -t "$selected_name:neovim"
+  # tmux new-window -t "$selected_name:" -c "$selected" -n "neovim"
+  # tmux send-keys -t "$selected_name:neovim" "nvim" Enter
+  tmux select-window -t "$selected_name:shell"
 fi
 
 if [[ -z ${TMUX:-} ]]; then

@@ -1,14 +1,25 @@
 display_ascii_art = true
 
 [key]
-always_prompt_delete = false
-always_prompt_overwrite = false
+  always_prompt_delete = false
+  always_prompt_glob_delete = true
+  always_prompt_overwrite = false
+  always_encrypt = false
 
 [store]
-default_store_name = "default"
-always_prompt_delete = true
+  default_store_name = "d"
+  always_prompt_delete = true
+  always_prompt_overwrite = true
+
+[list]
+  always_show_all_stores = true
+  default_list_format = "table"
+  always_show_full_values = false
+  always_hide_header = false
+  default_columns = "key,store,ttl,value"
 
 [git]
-auto_fetch = false
-auto_commit = true
-auto_push = false
+  auto_fetch = false
+  auto_commit = true
+  auto_push = false
+  default_commit_message = "sync: {{.Time}}"
