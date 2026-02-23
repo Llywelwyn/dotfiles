@@ -54,3 +54,5 @@ layout {
 
 prefer-no-csd
 screenshot-path "~/dcim/pictures/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
+
+include "dms/cursor.kdl"

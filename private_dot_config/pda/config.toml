@@ -7,7 +7,7 @@ display_ascii_art = true
   always_encrypt = false
 
 [store]
-  default_store_name = "d"
+  default_store_name = "store"
   always_prompt_delete = true
   always_prompt_overwrite = true
 
@@ -16,10 +16,10 @@ display_ascii_art = true
   default_list_format = "table"
   always_show_full_values = false
   always_hide_header = false
-  default_columns = "key,store,ttl,value"
+  default_columns = "meta,ttl,size,store,key,value"
 
 [git]
   auto_fetch = false
   auto_commit = true
   auto_push = false
-  default_commit_message = "sync: {{.Time}}"
+  default_commit_message = "{{ summary }}"

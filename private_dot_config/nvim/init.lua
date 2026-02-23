@@ -24,9 +24,7 @@
 -- │       ├ 09_gitsigns.lua     -- Git integration (Gitsigns)
 -- │       ├ 10_conform.lua      -- Formatting (vim-sleuth, conform)
 -- │       ├ 11_yanky.lua        -- Yank and put enhancements
--- │       ├ 12_neoscroll.lua    -- Animations
--- │       ├ 13_easyalign.lua    -- Visual mode: align around "=" with ga=
--- │       └ 14_obsidian.lua     -- Obsidian vault integration
+-- │       └ 12_neoscroll.lua    -- Animations
 -- └ snippets/               -- Snippet definitions
 --     ├ package.json            -- Snippet repository metadata
 --     ├ global.json             -- Global text snippets
@@ -39,4 +37,4 @@ require("config.20_keymaps")
 require("config.30_autocmds")
 require("config.40_statusline")
 
-vim.cmd.colorscheme("colibri-transparent")
+-- vim.cmd.colorscheme("colibri-transparent")
