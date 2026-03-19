@@ -15,6 +15,7 @@
 !.config/niri
 !.config/nvim
 !.config/pda
+!.config/swappy
 !.config/yay
 !.config/starship.toml
 !.config/chromium-flags.conf
