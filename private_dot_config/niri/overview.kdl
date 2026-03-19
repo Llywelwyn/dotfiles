@@ -5,4 +5,11 @@ layer-rule {
 
 overview {
     backdrop-color "transparent"
+    zoom 0.25
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }

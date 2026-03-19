@@ -403,7 +403,18 @@
   "showOnLastDisplay": {
     "notifications": true
   },
-  "niriOutputSettings": {},
+  "niriOutputSettings": {
+    "eDP-1": {
+      "hotCorners": {
+        "off": true
+      }
+    },
+    "HDMI-A-1": {
+      "hotCorners": {
+        "off": true
+      }
+    }
+  },
   "hyprlandOutputSettings": {},
   "barConfigs": [
     {
@@ -506,7 +517,8 @@
       "popupGapsAuto": true,
       "popupGapsManual": 9,
       "maximizeDetection": true,
-      "showOnWindowsOpen": false
+      "showOnWindowsOpen": false,
+      "shadowIntensity": 0
     }
   ],
   "desktopClockEnabled": false,

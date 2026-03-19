@@ -1,5 +1,4 @@
 include "input.kdl"
-include "output.kdl"
 include "overview.kdl"
 include "animations.kdl"
 include "binds.kdl"
@@ -7,6 +6,8 @@ include "windowrules.kdl"
 include "startup.kdl"
 include "recentwindows.kdl"
 include "dms/colors.kdl"
+include "dms/cursor.kdl"
+include "dms/outputs.kdl"
 
 environment {
     QT_QPA_PLATFORM "wayland"
@@ -29,7 +30,7 @@ layout {
         off
     }
     border {
-        width 1
+        width 2
     }
     tab-indicator {
 	hide-when-single-tab
@@ -54,5 +55,3 @@ layout {
 
 prefer-no-csd
 screenshot-path "~/dcim/pictures/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
-
-include "dms/cursor.kdl"

@@ -1,29 +1,25 @@
 binds {
-    // Mod + K:     Hotkeys
-    //     + O:     Overview
-    //     + W:     Close
-    //     + Enter: Terminal
-    //     + Space: App Launcher
-    //     + F:     Files
-    //     + B:     Browser
-    //     + D:     Discord
-    Mod+K                 { show-hotkey-overlay; }
-    Mod+O                 repeat=false           { toggle-overview; }
+    Mod+Space             repeat=false           { toggle-overview; }
     Mod+W                 repeat=false           { close-window; }
 
-    // DMS.
-    Mod+V                 { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Return            { spawn "ghostty"; }
+    Mod+B                 { spawn "chromium"; }
+
+    Mod+C                 { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
     Mod+P                 { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
     Mod+N                 { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+S                 { spawn "dms" "ipc" "call" "notepad" "toggle"; }
-    Mod+Space             { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+Shift+S           { spawn "dms" "screenshot"; }
+    Mod+O                 { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
 
-    Mod+Return            { spawn "ghostty"; }
-    Mod+F                 { spawn-sh "uwsm app -- nautilus --new-window"; }
-    Mod+B                 { spawn "chromium"; }
-    Mod+D                 { spawn "vesktop"; }
-    
+    Mod+T                 { toggle-column-tabbed-display; }
+    Mod+V                 { toggle-window-floating; }
+    Mod+Shift+S           { spawn "ss"; }
+    Mod+Semicolon         { center-column; }
+    Mod+Apostrophe        { switch-preset-column-width; }
+    Mod+Z                 { maximize-column; }
+    F11                   { fullscreen-window; }
+
+
     // Media controls.
     XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -88,26 +84,14 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
 
-    Mod+T { toggle-column-tabbed-display; }
-
     Mod+Comma  { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+Semicolon { center-column; }
-    Mod+Apostrophe { switch-preset-column-width; }
-    Mod+Z { maximize-column; }
-    F11 { fullscreen-window; }
+    Mod+Ctrl+Left   { set-column-width "-10%"; }
+    Mod+Ctrl+Right  { set-column-width "+10%"; }
+    Mod+Ctrl+Down   { set-window-height "-10%"; }
+    Mod+Ctrl+Up     { set-window-height "+10%"; }
 
-    Mod+Ctrl+Left { set-column-width "-10%"; }
-    Mod+Ctrl+Right { set-column-width "+10%"; }
-    Mod+Ctrl+Down { set-window-height "-10%"; }
-    Mod+Ctrl+Up { set-window-height "+10%"; }
-
-    Mod+Shift+V { toggle-window-floating; }
-
-    Print       { screenshot; }
-    Ctrl+Print  { screenshot-screen; }
-    Alt+Print   { screenshot-window; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit; }
