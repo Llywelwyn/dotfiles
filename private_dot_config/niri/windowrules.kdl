@@ -34,6 +34,7 @@ window-rule {
 
 // Always floating.
 window-rule {
+    match app-id="zenity"
     match app-id=r#"org.quickshell$"#
     match title="[Rr]une[Ll]ite"
     match title="[Bb]olt [Ll]auncher"
@@ -42,5 +43,13 @@ window-rule {
     open-floating true
     min-width 240
     min-height 180
+}
+
+// Steam and games - float and keep opaque.
+window-rule {
+    match app-id="steam"
+    match app-id=r#"^steam_app_"#
+    open-floating true
+    opacity 1.0
 }
 
