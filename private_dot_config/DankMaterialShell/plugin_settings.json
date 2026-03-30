@@ -65,5 +65,24 @@
   },
   "alarmClock": {
     "enabled": true
+  },
+  "niriWindows": {
+    "enabled": true,
+    "trigger": ","
+  },
+  "unifiedTaskbar": {
+    "enabled": true,
+    "compactMode": true,
+    "allMonitors": true,
+    "reverseMonitorOrder": false,
+    "groupByApp": false,
+    "filledPills": false,
+    "separatorStyle": "line",
+    "separatorSize": 2,
+    "workspaceIndicatorStyle": "off",
+    "separatorOpacity": 53,
+    "highlightOpacity": 20,
+    "notificationIndicator": "dot",
+    "notificationColor": "error"
   }
 }

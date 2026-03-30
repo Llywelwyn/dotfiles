@@ -49,7 +49,6 @@ window-rule {
 window-rule {
     match app-id="steam"
     match app-id=r#"^steam_app_"#
-    open-floating true
     opacity 1.0
 }
 

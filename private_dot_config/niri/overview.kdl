@@ -5,7 +5,7 @@ layer-rule {
 
 overview {
     backdrop-color "transparent"
-    zoom 0.25
+    zoom 0.2
 }
 
 gestures {

@@ -4,15 +4,16 @@
   "customThemeFile": "/home/lew/.config/niri/dms/colors.json",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-neutral",
+  "matugenContrast": 0,
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 0.76,
-  "dockTransparency": 0,
-  "widgetBackgroundColor": "sch",
-  "widgetColorMode": "default",
+  "dockTransparency": 0.67,
+  "widgetBackgroundColor": "sth",
+  "widgetColorMode": "colorful",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
-  "cornerRadius": 0,
+  "cornerRadius": 1,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -147,13 +148,13 @@
   "showWorkspaceName": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
-  "showWorkspaceApps": false,
+  "showWorkspaceApps": true,
   "workspaceDragReorder": true,
-  "maxWorkspaceIcons": 3,
+  "maxWorkspaceIcons": 99,
   "workspaceAppIconSizeOffset": 0,
-  "groupWorkspaceApps": true,
+  "groupWorkspaceApps": false,
   "workspaceFollowFocus": false,
-  "showOccupiedWorkspacesOnly": false,
+  "showOccupiedWorkspacesOnly": true,
   "reverseScrolling": false,
   "dwlShowAllTags": false,
   "workspaceActiveAppHighlightEnabled": false,
@@ -176,12 +177,12 @@
   "barMaxVisibleApps": 0,
   "barMaxVisibleRunningApps": 0,
   "barShowOverflowBadge": true,
-  "appsDockHideIndicators": false,
-  "appsDockColorizeActive": false,
+  "appsDockHideIndicators": true,
+  "appsDockColorizeActive": true,
   "appsDockActiveColorMode": "primary",
-  "appsDockEnlargeOnHover": false,
-  "appsDockEnlargePercentage": 125,
-  "appsDockIconSizePercentage": 100,
+  "appsDockEnlargeOnHover": true,
+  "appsDockEnlargePercentage": 150,
+  "appsDockIconSizePercentage": 130,
   "keyboardLayoutNameCompactMode": false,
   "runningAppsCurrentWorkspace": false,
   "runningAppsGroupByApp": false,
@@ -235,7 +236,7 @@
   "appPickerViewMode": "grid",
   "filePickerUsageHistory": {},
   "sortAppsAlphabetically": false,
-  "appLauncherGridColumns": 6,
+  "appLauncherGridColumns": 8,
   "spotlightCloseNiriOverview": true,
   "spotlightSectionViewModes": {
     "apps": "grid"
@@ -278,7 +279,7 @@
   "fontFamily": "Inter Variable",
   "monoFontFamily": "Fira Code",
   "fontWeight": 400,
-  "fontScale": 0.95,
+  "fontScale": 1,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 14,
@@ -363,25 +364,26 @@
       "harmony": 0.5
     }
   },
+  "matugenTemplateNeovimSetBackground": true,
   "showDock": false,
   "dockAutoHide": false,
-  "dockSmartAutoHide": true,
-  "dockGroupByApp": true,
+  "dockSmartAutoHide": false,
+  "dockGroupByApp": false,
   "dockRestoreSpecialWorkspaceOnClick": false,
   "dockOpenOnOverview": false,
-  "dockPosition": 1,
-  "dockSpacing": 4,
-  "dockBottomGap": -13,
-  "dockMargin": 6,
-  "dockIconSize": 25,
+  "dockPosition": 3,
+  "dockSpacing": 0,
+  "dockBottomGap": 0,
+  "dockMargin": 3,
+  "dockIconSize": 48,
   "dockIndicatorStyle": "circle",
-  "dockBorderEnabled": false,
+  "dockBorderEnabled": true,
   "dockBorderColor": "surfaceText",
-  "dockBorderOpacity": 1,
+  "dockBorderOpacity": 0.37,
   "dockBorderThickness": 1,
   "dockIsolateDisplays": false,
   "dockLauncherEnabled": false,
-  "dockLauncherLogoMode": "apps",
+  "dockLauncherLogoMode": "compositor",
   "dockLauncherLogoCustomPath": "",
   "dockLauncherLogoColorOverride": "",
   "dockLauncherLogoSizeOffset": 0,
@@ -390,7 +392,7 @@
   "dockMaxVisibleApps": 0,
   "dockMaxVisibleRunningApps": 0,
   "dockShowOverflowBadge": true,
-  "notificationOverlayEnabled": false,
+  "notificationOverlayEnabled": true,
   "notificationPopupShadowEnabled": true,
   "notificationPopupPrivacyMode": false,
   "modalDarkenBackground": true,
@@ -418,8 +420,8 @@
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
   "notificationCompactMode": true,
-  "notificationPopupPosition": -1,
-  "notificationAnimationSpeed": 1,
+  "notificationPopupPosition": 0,
+  "notificationAnimationSpeed": 2,
   "notificationCustomAnimationDuration": 400,
   "notificationHistoryEnabled": true,
   "notificationHistoryMaxCount": 50,
@@ -502,29 +504,15 @@
       "showOnLastDisplay": true,
       "leftWidgets": [
         {
-          "id": "spacer",
+          "id": "music",
           "enabled": true,
-          "size": 130
-        },
-        {
-          "id": "systemUpdate",
-          "enabled": true
-        },
-        {
-          "id": "spacer",
-          "enabled": true,
-          "size": 30
-        },
-        {
-          "id": "clock",
-          "enabled": true
+          "mediaSize": 2
         }
       ],
       "centerWidgets": [
         {
-          "id": "music",
-          "enabled": true,
-          "mediaSize": 1
+          "id": "unifiedTaskbar",
+          "enabled": true
         }
       ],
       "rightWidgets": [
@@ -533,58 +521,42 @@
           "enabled": true
         },
         {
-          "id": "spacer",
-          "enabled": true,
-          "size": 30
-        },
-        {
           "id": "controlCenterButton",
           "enabled": true
         },
         {
-          "id": "spacer",
-          "enabled": true,
-          "size": 30
+          "id": "systemUpdate",
+          "enabled": true
+        },
+        {
+          "id": "clock",
+          "enabled": true
         },
         {
           "id": "battery",
           "enabled": true
-        },
-        {
-          "id": "spacer",
-          "enabled": true,
-          "size": 30
-        },
-        {
-          "id": "notepadButton",
-          "enabled": true
-        },
-        {
-          "id": "spacer",
-          "enabled": true,
-          "size": 130
         }
       ],
-      "spacing": 5,
+      "spacing": 2,
       "innerPadding": -8,
-      "bottomGap": 0,
-      "transparency": 0.42,
-      "widgetTransparency": 0,
-      "squareCorners": true,
+      "bottomGap": -2,
+      "transparency": 0,
+      "widgetTransparency": 1,
+      "squareCorners": false,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": true,
       "gothCornerRadiusValue": 14,
-      "borderEnabled": true,
+      "borderEnabled": false,
       "borderColor": "primary",
       "borderOpacity": 0.86,
       "borderThickness": 1,
-      "widgetOutlineEnabled": false,
-      "widgetOutlineColor": "primary",
-      "widgetOutlineOpacity": 1,
-      "widgetOutlineThickness": 1,
-      "fontScale": 1.05,
-      "autoHide": true,
+      "widgetOutlineEnabled": true,
+      "widgetOutlineColor": "surfaceText",
+      "widgetOutlineOpacity": 0.15,
+      "widgetOutlineThickness": 2,
+      "fontScale": 1,
+      "autoHide": false,
       "autoHideDelay": 198,
       "openOnOverview": true,
       "visible": true,
@@ -592,7 +564,12 @@
       "popupGapsManual": 9,
       "maximizeDetection": true,
       "showOnWindowsOpen": false,
-      "shadowIntensity": 0
+      "shadowIntensity": 0,
+      "widgetPadding": 7,
+      "iconScale": 1,
+      "maximizeWidgetText": false,
+      "maximizeWidgetIcons": false,
+      "removeWidgetPadding": false
     }
   ],
   "desktopClockEnabled": false,
