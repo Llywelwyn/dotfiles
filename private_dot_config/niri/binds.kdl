@@ -1,20 +1,37 @@
 binds {
     Mod+Space             repeat=false           { toggle-overview; }
-    Mod+W                 repeat=false           { close-window; }
-
     Mod+Return            { spawn "ghostty"; }
+    Mod+A                 { spawn ""; }
     Mod+B                 { spawn "chromium"; }
-
     Mod+C                 { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
-    Mod+P                 { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Mod+D                 { spawn "togglies" "app-id starts-with vesktop" "vesktop"; }
+    Mod+E                 { spawn ""; }
+    Mod+F                 { spawn ""; }
+    Mod+G                 { spawn ""; }
+    Mod+H                 { spawn ""; }
+    Mod+I                 { spawn ""; }
+    Mod+J                 { spawn ""; }
+    Mod+K                 { spawn ""; }
+    Mod+L                 { spawn ""; }
+    Mod+M                 { spawn ""; }
     Mod+N                 { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-
+    Mod+O                 { spawn "togglies-menu"; }
+    Mod+P                 { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Mod+Q                 { spawn ""; }
+    Mod+R                 { spawn ""; }
+    Mod+S                 { spawn "togglies" "app-id starts-with Slack" "slack"; }
     Mod+T                 { toggle-column-tabbed-display; }
+    Mod+U                 { spawn ""; }
     Mod+V                 { toggle-window-floating; }
-    Mod+Shift+S           { spawn "ss"; }
+    Mod+W                 repeat=false           { close-window; }
+    Mod+X                 { spawn ""; }
+    Mod+Y                 { spawn "togglies" "title starts-with Yazi" "ghostty -e yazi"; }
+    Mod+Z                 { maximize-column; }
+
+
+    Mod+Shift+S           { spawn "screenshot"; }
     Mod+Semicolon         { center-column; }
     Mod+Apostrophe        { switch-preset-column-width; }
-    Mod+Z                 { maximize-column; }
     F11                   { fullscreen-window; }
 
 

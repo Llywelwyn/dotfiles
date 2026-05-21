@@ -317,11 +317,17 @@
     ]
   },
   "bluetoothDevicePins": {
-    "preferredDevice": "88:08:94:C3:DD:4B"
+    "preferredDevice": [
+      "AC:8E:BD:31:56:78",
+      "88:08:94:C3:DD:4B"
+    ]
   },
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {
-    "preferredOutput": "alsa_output.pci-0000_07_00.6.HiFi__Speaker__sink"
+    "preferredOutput": [
+      "alsa_output.pci-0000_07_00.1.HiFi__HDMI2__sink",
+      "alsa_output.pci-0000_07_00.6.HiFi__Speaker__sink"
+    ]
   },
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
@@ -347,7 +353,7 @@
   "matugenTemplateKitty": false,
   "matugenTemplateFoot": false,
   "matugenTemplateAlacritty": true,
-  "matugenTemplateNeovim": true,
+  "matugenTemplateNeovim": false,
   "matugenTemplateWezterm": false,
   "matugenTemplateDgop": true,
   "matugenTemplateKcolorscheme": true,

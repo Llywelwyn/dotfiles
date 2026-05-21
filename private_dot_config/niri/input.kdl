@@ -9,7 +9,6 @@ input {
     }
     touchpad {
         tap
-        dwt
         dwtp
         accel-profile "flat"
         scroll-method "two-finger"
@@ -21,5 +20,6 @@ input {
         accel-profile "flat"
     }
     warp-mouse-to-focus
+    workspace-auto-back-and-forth
     focus-follows-mouse max-scroll-amount="90%"
 }
