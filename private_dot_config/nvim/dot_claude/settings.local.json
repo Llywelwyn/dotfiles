@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvim --version)",
+      "WebFetch(domain:echasnovski.com)"
+    ]
+  }
+}
