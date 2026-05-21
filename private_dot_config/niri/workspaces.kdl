@@ -1,0 +1,18 @@
+workspace "main"
+workspace "chat"
+workspace "work"
+
+window-rule {
+    match app-id=r#"^vesktop$"#
+    match app-id=r#"^[Ss]lack$"#
+    match app-id=r#"^chrome-music\.youtube\.com__-Default$"#
+    open-on-workspace "chat"
+    open-focused true
+}
+
+window-rule {
+    match app-id=r#"^com\.obsproject.\Studio$"#
+    open-on-workspace "work"
+    open-focused true
+}
+
