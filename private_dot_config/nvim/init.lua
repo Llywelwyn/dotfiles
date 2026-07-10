@@ -31,7 +31,6 @@ vim.pack.add({
   { src = "https://github.com/nvim-mini/mini.icons" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
   { src = "https://github.com/folke/lazydev.nvim" },
   { src = "https://github.com/seblyng/roslyn.nvim" },
   { src = "https://github.com/nvim-mini/mini.pairs" },
@@ -44,7 +43,8 @@ vim.pack.add({
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://codeberg.org/andyg/leap.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/lewis6991/gitsigns.nvim" },
+  { src = "https://github.com/nvim-mini/mini.diff" },
+  { src = "https://github.com/nvim-mini/mini-git" },
   { src = "https://github.com/tpope/vim-sleuth" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/gbprod/yanky.nvim" },
@@ -61,7 +61,8 @@ require("mason").setup({
     "github:Crashdummyy/mason-registry",
   },
 })
-require("mason-lspconfig").setup({ ensure_installed = {} })
+vim.lsp.enable({ "clangd", "gopls", "lua_ls", "rust_analyzer", "astro" })
+
 require("lazydev").setup({
   library = {
     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -102,32 +103,8 @@ require("blink.cmp").setup({
 })
 
 require("tmux").setup({
-  copy_sync = {
-    enable = true,
-    ignore_buffers = { empty = false },
-    redirect_to_clipboard = false,
-    register_offset = 0,
-    sync_clipboard = false,
-    sync_registers = true,
-    sync_registers_keymap_put = true,
-    sync_registers_keymap_reg = true,
-    sync_deletes = true,
-    sync_unnamed = true,
-  },
-  navigation = {
-    cycle_navigation = true,
-    enable_default_keybindings = false,
-    persist_zoom = false,
-  },
-  resize = {
-    enable_default_keybindings = false,
-    resize_step_x = 5,
-    resize_step_y = 3,
-  },
-  swap = {
-    cycle_navigation = false,
-    enable_default_kebindings = false,
-  },
+  copy_sync = { enable = true, sync_clipboard = false },
+  resize = { resize_step_x = 5, resize_step_y = 3 },
 })
 do
   local t = require("tmux")
@@ -255,19 +232,14 @@ require("oil").setup({
 })
 vim.keymap.set("n", "<leader>o", "<Cmd>Oil<CR>", { desc = "oil" })
 
-require("gitsigns").setup({})
-vim.keymap.set("n", "<leader>gb", function()
-  require("gitsigns").blame_line()
-end, { desc = "git blame current line" })
-vim.keymap.set("n", "<leader>g]", function()
-  require("gitsigns").nav_hunk("next")
-end, { desc = "git next hunk" })
-vim.keymap.set("n", "<leader>g[", function()
-  require("gitsigns").nav_hunk("prev")
-end, { desc = "git prev hunk" })
-vim.keymap.set("n", "<leader>gp", function()
-  require("gitsigns").preview_hunk_inline()
-end, { desc = "git preview hunk" })
+require("mini.diff").setup({})
+require("mini.git").setup({})
+-- stylua: ignore start
+vim.keymap.set("n", "<leader>gb", function() require("mini.git").show_at_cursor() end,        { desc = "git blame current line" })
+vim.keymap.set("n", "<leader>g]", function() require("mini.diff").goto_hunk("next") end,      { desc = "git next hunk" })
+vim.keymap.set("n", "<leader>g[", function() require("mini.diff").goto_hunk("prev") end,      { desc = "git prev hunk" })
+vim.keymap.set("n", "<leader>gp", function() require("mini.diff").toggle_overlay() end,       { desc = "git preview hunks" })
+-- stylua: ignore end
 
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 require("conform").setup({

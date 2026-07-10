@@ -25,13 +25,17 @@
       "rev": "940bc5e716a8cde63bd47e1b13f30fd9075ec0c8",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
-    "mason-lspconfig.nvim": {
-      "rev": "7b01e2974a47d489bb92f47a41e4c0088ea8f86e",
-      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
-    },
     "mason.nvim": {
       "rev": "cbf8d285e1462dd24acf3507817be2bbcb035919",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini-git": {
+      "rev": "7c81d173462042cd3a3571643bce03a6c255fd41",
+      "src": "https://github.com/nvim-mini/mini-git"
+    },
+    "mini.diff": {
+      "rev": "5af2b6be4a4beb673f3196a414f6fd932bbedd48",
+      "src": "https://github.com/nvim-mini/mini.diff"
     },
     "mini.icons": {
       "rev": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",

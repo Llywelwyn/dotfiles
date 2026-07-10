@@ -52,3 +52,10 @@ window-rule {
     opacity 1.0
 }
 
+// Wine apps - always floating, opaque.
+window-rule {
+    match app-id=r#"\.exe$"#
+    open-floating true
+    opacity 1.0
+}
+

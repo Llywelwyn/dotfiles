@@ -1,6 +1,7 @@
 workspace "main"
 workspace "chat"
 workspace "work"
+workspace "wine"
 
 window-rule {
     match app-id=r#"^vesktop$"#
@@ -14,5 +15,18 @@ window-rule {
     match app-id=r#"^com\.obsproject.\Studio$"#
     open-on-workspace "work"
     open-focused true
+}
+
+window-rule {
+    match app-id=r#"\.exe$"#
+    open-on-workspace "wine"
+    open-focused true
+}
+
+window-rule {
+    match app-id=r#"^labwc$"#
+    open-on-workspace "wine"
+    open-focused true
+    open-fullscreen true
 }
 
